@@ -72,12 +72,10 @@ const List = () => {
          setProgress(newProgress)
          setData(modData)
          try {
-            const res = await axios.patch(`lists/completed/${collectionId}`, {
+         await axios.patch(`lists/completed/${collectionId}`, {
                items: modData,
             })
-            if (res.statusText === 'OK') {
-               setLoading(false)
-            }
+         setLoading(false)
          } catch (error) {
             console.log(error)
             setLoading(false)
