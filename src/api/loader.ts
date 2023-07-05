@@ -176,20 +176,18 @@ export const getAllFavorites = async () => {
 
    try {
       const res = await axios.get('/favorites')
-      if (res.statusText !== 'OK') return
       const { data } = res
       return defer({ deferredData: data })
    } catch (error) {
       console.log(error)
       const errorRes = (error as AxiosCustomError).response
-      throw { msg: errorRes.data.msg, statuscode: errorRes.status }
+      return { msg: errorRes.data.msg, statuscode: errorRes.status }
    }
 }
 export const getSingleFavorite = async ({ params }: { params: Params }) => {
    const {favoriteId: id} = params
    try {
       const res = await axios.get(`/favorites/item/${id}`)
-      if (res.statusText !== 'OK') return
       const { data: favorites } = res
       return defer({ favorites })
    } catch (error) {
@@ -201,8 +199,8 @@ export const patchFavorite = async ({ params, request }: { params: Params, reque
    const formData = await request.formData()
    const {favoriteId: id} = params
    try {
-      const res = await axios.patch(`/favorites/item/${id}`, {payload: Object.fromEntries(formData)})
-      if (res.statusText !== 'OK') return
+      await axios.patch(`/favorites/item/${id}`, {payload: Object.fromEntries(formData)})
+
       return redirect("/dashboard/favorites")
    } catch (error) {
       const errorRes = (error as AxiosCustomError).response
