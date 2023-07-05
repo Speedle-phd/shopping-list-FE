@@ -106,7 +106,7 @@ const EditList = () => {
    const getMyFavorites = async (query: string) => {
       try {
          const res = await axios.get(`/favorites/queries?q=${query}`)
-         if (res.statusText !== 'OK') return
+
          const { data } = res
          setFavorites(data.splicedList)
          if (data.splicedList.length > 0) {
@@ -269,16 +269,14 @@ const EditList = () => {
       setError(null)
       setLoading(true)
       try {
-         const res = await axios.patch(`/lists/${collectionId}`, {
+         await axios.patch(`/lists/${collectionId}`, {
             data: {
                adjustedTitle,
                adjustedItems,
             },
          })
          setLoading(false)
-         if (res.statusText === 'OK') {
-            navigate(`/dashboard/collections/${collectionId}`)
-         }
+         navigate(`/dashboard/collections/${collectionId}`)
       } catch (error) {
          setError({
             message: (error as AxiosError).message,
