@@ -1,6 +1,6 @@
 import axios from 'axios'
 import Cookies from 'universal-cookie'
-axios.defaults.baseURL = 'https://shopping-list-api-gtv3.onrender.com'
+axios.defaults.baseURL = 'https://shopping-list-api-gtv3.onrender.com/api/v1'
 // axios.defaults.baseURL = 'http://127.0.0.1:3000/api/v1'
 
 axios.interceptors.request.use(function (req) {
