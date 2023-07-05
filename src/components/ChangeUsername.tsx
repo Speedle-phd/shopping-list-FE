@@ -17,7 +17,6 @@ const ChangeUsername = ({props}: {props: CSSProperties}) => {
       const newUserObj = {...user, username: value} as UserInterface
       try {
          const res = await axios.patch('/auth/settings', {payload: newUserObj})
-         if(res.statusText !== 'OK') return
          cookies.remove('panda-eats-cookies', {path: "/"})
          cookies.set('panda-eats-cookies', {
             ...res.data.user,

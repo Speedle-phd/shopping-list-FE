@@ -10,7 +10,7 @@ const DeleteUser = ({props} : {props: CSSProperties}) => {
    const handleClick = async() => {
       try {
          const res = await axios.delete('/auth/settings')
-         if(res.statusText !== 'OK') return
+
          if(res.data){
             logout()
          }

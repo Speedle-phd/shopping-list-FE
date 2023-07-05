@@ -33,7 +33,6 @@ const FavoriteItems = ({
       setLoading(true)
       try {
          const res = await axios.delete(`/favorites/item/${id}`)
-         if( res.statusText !== "OK") return
          const {data} = res
          const filteredFavorites = favorites?.filter(el => el._id !== data.favorite._id)
          setFavorites(filteredFavorites)

@@ -40,7 +40,6 @@ const ChangePassword = ({ props }: { props: CSSProperties }) => {
          const res = await axios.patch(`/auth/settings/password`, {
             payload: { oldPassword, newPassword },
          })
-         if (res.statusText !== 'OK') return
          if (res.data) {
             setSuccess(true)
             oldRef.current!.value = ""
