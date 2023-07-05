@@ -83,7 +83,7 @@ const router = createBrowserRouter([
             element: <Favorites />,
             loader: getAllFavorites,
             action: favoritesAction,
-            errorElement: <LoaderFail />,
+            // errorElement: <LoaderFail />,
          },
          {
             path: 'favorites/:favoriteId',
