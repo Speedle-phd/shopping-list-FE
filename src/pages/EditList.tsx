@@ -68,6 +68,7 @@ const EditList = () => {
    const loaderData = useLoaderData() as {
       list: DatabaseItemListInterface | ErrorInterface
    }
+   console.log(loaderData)
    //navigate to some URL
    const navigate = useNavigate()
    // getting the listId

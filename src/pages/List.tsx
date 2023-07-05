@@ -38,6 +38,7 @@ const List = () => {
    const loaderData = useLoaderData() as {
       list: DatabaseItemListInterface | ErrorInterface
    }
+   console.log(loaderData)
    const [data, setData] = useState<CollectionItemsInterface[] | null>(null)
    const [mount, setMount] = useState<boolean>(true)
    const [loading, setLoading] = useState<boolean>(false)
