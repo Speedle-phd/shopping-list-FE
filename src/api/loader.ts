@@ -180,6 +180,7 @@ export const getAllFavorites = async () => {
       const { data } = res
       return defer({ deferredData: data })
    } catch (error) {
+      console.log(error)
       const errorRes = (error as AxiosCustomError).response
       throw { msg: errorRes.data.msg, statuscode: errorRes.status }
    }
