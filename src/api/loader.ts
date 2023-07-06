@@ -212,7 +212,7 @@ export const favoritesAction = async ({ request }: { request: Request }) => {
    const formData = await request.formData()
    try {
       const res = await axios.post('/favorites', {data: Object.fromEntries(formData)})
-      if( res.statusText !== 'OK') return
+      
       const { data } = res
       return data
    } catch (error) {
