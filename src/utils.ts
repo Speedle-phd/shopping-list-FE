@@ -2,7 +2,8 @@ import Cookies from 'universal-cookie';
 import { redirect } from "react-router-dom"
 import { AuthDataInterface, AxiosCustomErrorInterface, DatabaseItemListInterface, ErrorInterface } from './types/types';
 
-const BASEURL = "http://127.0.0.1:5173/"
+// const BASEURL = "http://127.0.0.1:5173/"
+const BASEURL = "https://chipper-tiramisu-891dd8.netlify.app/"
 
 // export const isLoggedIn = async() => {
 //    const cookies = new Cookies()
