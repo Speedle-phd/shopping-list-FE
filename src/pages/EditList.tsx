@@ -14,7 +14,6 @@ import {
    FavoritesInterface,
 } from '../types/types'
 import React, {
-
    Suspense,
    createRef,
    useCallback,
@@ -157,11 +156,10 @@ const EditList = () => {
    )
 
    const handleShowFav = (e: MouseEvent) => {
-      if(!showFav) return
-      if((e.target as HTMLElement).closest(".fav-container")) return
+      if (!showFav) return
+      if ((e.target as HTMLElement).closest('.fav-container')) return
       setShowFav(false)
       setFavorites(null)
-
    }
 
    useEffect(() => {
@@ -175,7 +173,6 @@ const EditList = () => {
       document.addEventListener('click', handleShowFav, false)
       return () => document.removeEventListener('click', handleShowFav, false)
    })
-
 
    const handleInput = (e: React.ChangeEvent) => {
       const target = e.target as HTMLInputElement
@@ -563,7 +560,7 @@ const EditList = () => {
                   </SimpleGrid>
                </Form>
                <chakra.div marginBlock={5}>
-                  {(data ?? []).map((item, index) => {
+                  {(data ?? []).sort((a, b) => a.name.localeCompare(b.name)).map((item, index) => {
                      const {
                         name,
                         company,
