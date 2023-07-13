@@ -11,7 +11,7 @@ const EditFavorites = () => {
   
   const renderHTML = (loaderData: {favorites: {favorites: FavoritesInterface[]}}) => {
     const data = loaderData.favorites.favorites[0]
-    console.log(data)
+
     return (
     <Flex justifyContent={"center"} alignItems={"center"} flexDirection={"column"} gap="1rem" p={4}>
       <Heading>Edit your Item</Heading>

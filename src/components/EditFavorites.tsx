@@ -3,6 +3,7 @@ import { CSSProperties } from 'react'
 import {Link as ReactLink} from 'react-router-dom'
 
 const EditFavorites = ({ props }: { props: CSSProperties }) => {
+
    return (
       <chakra.section style={props} display="flex" flexDirection={"column"} gap={6}>
          {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}

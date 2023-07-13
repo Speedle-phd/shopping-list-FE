@@ -722,7 +722,7 @@ const EditList = () => {
    }
 
    if (redirectFlag) {
-      return <Navigate to='/dashboard/collections' />
+      return <Navigate replace to='/dashboard/collections' />
    }
 
    return (

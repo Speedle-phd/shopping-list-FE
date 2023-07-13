@@ -1,6 +1,6 @@
 import { Button, Grid, Link, Text } from '@chakra-ui/react'
 import axios from 'axios'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link as ReactLink} from 'react-router-dom'
 import { FavoritesInterface } from '../types/types'
 
@@ -14,7 +14,7 @@ interface FavoriteItemsProps {
    _id?: string
    isOdd: boolean
 }
-
+console.log(scrollY)
 const FavoriteItems = ({
    name: title,
    company,

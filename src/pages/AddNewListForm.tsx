@@ -32,7 +32,7 @@ const AddNewListForm = () => {
       const transDirectionTwo = "-"
       const transformStringOne = `translate(${transDirectionTwo}${cx/Math.PI}px, ${transDirectionOne}${cy/Math.PI/2}px)`
       const transformStringTwo = `translate(${transDirectionOne}${cx/Math.PI}px, ${transDirectionTwo}${cy/Math.PI/10}px)`
-      if(!(e.target as HTMLElement).closest('.addForm')) {
+      if(!(e.target as HTMLElement).closest('.addForm') && bubbleOneRef.current && bubbleTwoRef.current) {
          (bubbleOneRef.current as HTMLDivElement).style.scale = '1'
          ;(bubbleTwoRef.current as HTMLDivElement).style.scale = '1'
          return
