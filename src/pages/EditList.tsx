@@ -67,7 +67,6 @@ const EditList = () => {
    const loaderData = useLoaderData() as {
       list: DatabaseItemListInterface | ErrorInterface
    }
-   console.log(loaderData)
    //navigate to some URL
    const navigate = useNavigate()
    // getting the listId
@@ -295,6 +294,7 @@ const EditList = () => {
       // @ts-ignore
       setData((prev) => [form, ...prev])
       formDOM.reset()
+      
    }
 
    const handleDelete = async () => {
@@ -303,11 +303,9 @@ const EditList = () => {
          setError(null)
          setLoading(true)
          try {
-            const res = await axios.delete(`/lists/${toDeleteId}`)
+            await axios.delete(`/lists/${toDeleteId}`)
             setLoading(false)
-            if (res.statusText === 'OK') {
-               setRedirectFlag(true)
-            }
+            setRedirectFlag(true)
          } catch (error) {
             setError({
                message: (error as AxiosError).message,
@@ -441,6 +439,7 @@ const EditList = () => {
                         }}
                      >
                         <option value='St.'>St.</option>
+                        <option value='Pck.'>Pck.</option>
                         <option value='g'>g</option>
                         <option value='kg'>kg</option>
                         <option value='ml'>ml</option>
@@ -540,7 +539,8 @@ const EditList = () => {
                         fontSize={{ base: '0.7rem', md: '0.9rem' }}
                         placeholder='Optional: Select department'
                      >
-                        <option value='Groceries'>Groceries</option>
+                        <option value='Fruit and veg'>Fruit and veg</option>
+                        <option value='Supplies'>Supplies</option>
                         <option value='Freezer'>Freezer</option>
                         <option value='Bakery'>Bakery</option>
                         <option value='Household'>Household</option>
@@ -630,6 +630,7 @@ const EditList = () => {
                               }}
                            >
                               <option value='St.'>St.</option>
+                              <option value='Pck.'>Pck.</option>
                               <option value='g'>g</option>
                               <option value='kg'>kg</option>
                               <option value='ml'>ml</option>
@@ -669,7 +670,8 @@ const EditList = () => {
                               placeholder='Optional: Select department'
                               defaultValue={department ?? ''}
                            >
-                              <option value='Groceries'>Groceries</option>
+                              <option value='Fruit and veg'>Fruit and veg</option>
+                              <option value='Supplies'>Supplies</option>
                               <option value='Freezer'>Freezer</option>
                               <option value='Bakery'>Bakery</option>
                               <option value='Household'>Household</option>

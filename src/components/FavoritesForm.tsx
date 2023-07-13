@@ -48,7 +48,8 @@ const FavoritesForm = ({name, company, department}: FavoritesFormProps) => {
                   placeholder='Optional...'
                   defaultValue={department ?? ''}
                >
-                  <option value='Groceries'>Groceries</option>
+                  <option value='Fruit and veg'>Fruit and veg</option>
+                  <option value='Supplies'>Supplies</option>
                   <option value='Freezer'>Freezer</option>
                   <option value='Bakery'>Bakery</option>
                   <option value='Household'>Household</option>

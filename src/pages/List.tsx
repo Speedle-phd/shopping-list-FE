@@ -38,7 +38,7 @@ const List = () => {
    const loaderData = useLoaderData() as {
       list: DatabaseItemListInterface | ErrorInterface
    }
-   console.log(loaderData)
+
    const [data, setData] = useState<CollectionItemsInterface[] | null>(null)
    const [mount, setMount] = useState<boolean>(true)
    const [loading, setLoading] = useState<boolean>(false)
@@ -179,8 +179,10 @@ const List = () => {
                               ? 'blue.300'
                               : department === 'Bakery'
                               ? 'yellow.300'
-                              : department === 'Groceries'
+                              : department === 'Fruit and veg'
                               ? 'green.300'
+                              : department === 'Supplies'
+                              ? 'teal.300'
                               : department === 'Meat'
                               ? 'red.300'
                               : department === 'Household' ? 'orange.300' : 'gray:300'
@@ -215,15 +217,17 @@ const List = () => {
                      <chakra.div
                         key={id}
                         id={id}
-                        boxShadow={"1px 1px 6px 0 rgba(0,0,0,0.5)"}
+                        boxShadow={'1px 1px 6px 0 rgba(0,0,0,0.5)'}
                         p={3}
                         bgColor={
                            department === 'Freezer'
                               ? 'blue.100'
                               : department === 'Bakery'
                               ? 'yellow.100'
-                              : department === 'Groceries'
+                              : department === 'Fruit and veg'
                               ? 'green.100'
+                              : department === 'Supplies'
+                              ? 'teal.100'
                               : department === 'Meat'
                               ? 'red.100'
                               : department === 'Household'
@@ -249,7 +253,7 @@ const List = () => {
                                        py: '1',
                                        rounded: '100vmin',
                                        bg: 'white',
-                                       boxShadow: "0 0 5px 0 rgba(0,0,0,0.5)"
+                                       boxShadow: '0 0 5px 0 rgba(0,0,0,0.5)',
                                     }}
                                  >
                                     {amount}
