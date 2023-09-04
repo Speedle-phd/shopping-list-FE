@@ -440,6 +440,8 @@ const EditList = () => {
                      >
                         <option value='St.'>St.</option>
                         <option value='Pck.'>Pck.</option>
+                        <option value='Dose'>Dose</option>
+                        <option value='Fl.'>Fl.</option>
                         <option value='g'>g</option>
                         <option value='kg'>kg</option>
                         <option value='ml'>ml</option>
@@ -631,6 +633,8 @@ const EditList = () => {
                            >
                               <option value='St.'>St.</option>
                               <option value='Pck.'>Pck.</option>
+                              <option value='Dose'>Dose</option>
+                              <option value='Fl.'>Fl.</option>
                               <option value='g'>g</option>
                               <option value='kg'>kg</option>
                               <option value='ml'>ml</option>
@@ -670,7 +674,9 @@ const EditList = () => {
                               placeholder='Optional: Select department'
                               defaultValue={department ?? ''}
                            >
-                              <option value='Fruit and veg'>Fruit and veg</option>
+                              <option value='Fruit and veg'>
+                                 Fruit and veg
+                              </option>
                               <option value='Supplies'>Supplies</option>
                               <option value='Freezer'>Freezer</option>
                               <option value='Bakery'>Bakery</option>
