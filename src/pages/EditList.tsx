@@ -440,7 +440,7 @@ const EditList = () => {
                      >
                         <option value='St.'>St.</option>
                         <option value='Pck.'>Pck.</option>
-                        <option value='Dose'>Dose</option>
+                        <option value='Dose/n'>Dose/n</option>
                         <option value='Fl.'>Fl.</option>
                         <option value='g'>g</option>
                         <option value='kg'>kg</option>
@@ -562,130 +562,136 @@ const EditList = () => {
                   </SimpleGrid>
                </Form>
                <chakra.div marginBlock={5}>
-                  {(data ?? []).sort((a, b) => a.name.localeCompare(b.name)).map((item, index) => {
-                     const {
-                        name,
-                        company,
-                        department,
-                        amount,
-                        id,
-                        completed,
-                     } = item
-                     const numericAmount = amount.split(' ')[0]
-                     const amountQuality = amount.split(' ')[1]
-                     return (
-                        <SimpleGrid
-                           // width='min(70rem, calc(100vw - 2rem))'
-                           gridTemplateColumns={{
-                              base: 'repeat(6, 1fr)',
-                              md: 'auto auto 1.5fr 1fr 1fr',
-                           }}
-                           id={id}
-                           data-completed={completed}
-                           key={id}
-                           gap='0.5rem'
-                           position={'relative'}
-                           paddingInline={2}
-                           paddingBlock={3}
-                           fontSize={{ base: '0.7rem', md: '0.9rem' }}
-                           ref={refs[index]}
-                           backgroundColor={`${index % 2 === 0 && 'blue'}.50`}
-                           paddingInlineEnd={5}
-                           opacity={completed ? '0.3' : '1'}
-                           textDecoration={completed ? 'line-through' : 'none'}
-                        >
-                           <IconButton
-                              colorScheme='red'
-                              aria-label='Delete Item'
-                              icon={<DeleteIcon />}
-                              position='absolute'
-                              size='sm'
-                              right='-5'
-                              top='50%'
-                              style={{ translate: '0 -50%' }}
-                              onClick={() => handleDeleteItem(id)}
-                           />
-                           <NumberInput
-                              width={{ base: 'auto', sm: '80px' }}
-                              defaultValue={numericAmount ?? '1'}
-                              min={0}
-                              gridColumn={{
-                                 base: '1 / 4',
-                                 sm: '1 / 2',
-                                 md: 'unset',
+                  {(data ?? [])
+                     .sort((a, b) => a.name.localeCompare(b.name))
+                     .map((item, index) => {
+                        const {
+                           name,
+                           company,
+                           department,
+                           amount,
+                           id,
+                           completed,
+                        } = item
+                        const numericAmount = amount.split(' ')[0]
+                        const amountQuality = amount.split(' ')[1]
+                        return (
+                           <SimpleGrid
+                              // width='min(70rem, calc(100vw - 2rem))'
+                              gridTemplateColumns={{
+                                 base: 'repeat(6, 1fr)',
+                                 md: 'auto auto 1.5fr 1fr 1fr',
                               }}
-                           >
-                              <NumberInputField />
-                              <NumberInputStepper>
-                                 <NumberIncrementStepper />
-                                 <NumberDecrementStepper />
-                              </NumberInputStepper>
-                           </NumberInput>
-                           <Select
-                              width={{ base: 'auto', sm: '80px' }}
-                              placeholder='Select unit'
-                              defaultValue={amountQuality ?? 'St.'}
-                              gridColumn={{
-                                 base: '4 / -1',
-                                 sm: '2 / 3',
-                                 md: 'unset',
-                              }}
-                           >
-                              <option value='St.'>St.</option>
-                              <option value='Pck.'>Pck.</option>
-                              <option value='Dose'>Dose</option>
-                              <option value='Fl.'>Fl.</option>
-                              <option value='g'>g</option>
-                              <option value='kg'>kg</option>
-                              <option value='ml'>ml</option>
-                              <option value='l'>l</option>
-                           </Select>
-                           <Input
-                              gridColumn={{
-                                 base: '1 / -1',
-                                 sm: '3 / -1',
-                                 md: 'unset',
-                              }}
-                              defaultValue={name ?? ''}
-                              height={{ base: '35px', sm: 'auto' }}
-                              size='s'
-                              p={1}
-                              placeholder='Select a name'
-                           ></Input>
-                           <Input
-                              gridColumn={{
-                                 base: 'span 6',
-                                 sm: '1 / 4',
-                                 md: 'unset',
-                              }}
-                              defaultValue={company ?? ''}
-                              height={{ base: '35px', sm: 'auto' }}
-                              size='s'
-                              p={1}
-                              placeholder='Optional: Select a company'
-                           ></Input>
-                           <Select
-                              gridColumn={{
-                                 base: 'span 6',
-                                 sm: '4 / -1',
-                                 md: 'unset',
-                              }}
+                              id={id}
+                              data-completed={completed}
+                              key={id}
+                              gap='0.5rem'
+                              position={'relative'}
+                              paddingInline={2}
+                              paddingBlock={3}
                               fontSize={{ base: '0.7rem', md: '0.9rem' }}
-                              placeholder='Optional: Select department'
-                              defaultValue={department ?? ''}
+                              ref={refs[index]}
+                              backgroundColor={`${
+                                 index % 2 === 0 && 'blue'
+                              }.50`}
+                              paddingInlineEnd={5}
+                              opacity={completed ? '0.3' : '1'}
+                              textDecoration={
+                                 completed ? 'line-through' : 'none'
+                              }
                            >
-                              <option value='Fruit and veg'>
-                                 Fruit and veg
-                              </option>
-                              <option value='Supplies'>Supplies</option>
-                              <option value='Freezer'>Freezer</option>
-                              <option value='Bakery'>Bakery</option>
-                              <option value='Household'>Household</option>
-                              <option value='Meat'>Meat</option>
-                           </Select>
-                        </SimpleGrid>
-                     )
-                  })}
+                              <IconButton
+                                 colorScheme='red'
+                                 aria-label='Delete Item'
+                                 icon={<DeleteIcon />}
+                                 position='absolute'
+                                 size='sm'
+                                 right='-5'
+                                 top='50%'
+                                 style={{ translate: '0 -50%' }}
+                                 onClick={() => handleDeleteItem(id)}
+                              />
+                              <NumberInput
+                                 width={{ base: 'auto', sm: '80px' }}
+                                 defaultValue={numericAmount ?? '1'}
+                                 min={0}
+                                 gridColumn={{
+                                    base: '1 / 4',
+                                    sm: '1 / 2',
+                                    md: 'unset',
+                                 }}
+                              >
+                                 <NumberInputField />
+                                 <NumberInputStepper>
+                                    <NumberIncrementStepper />
+                                    <NumberDecrementStepper />
+                                 </NumberInputStepper>
+                              </NumberInput>
+                              <Select
+                                 width={{ base: 'auto', sm: '80px' }}
+                                 placeholder='Select unit'
+                                 defaultValue={amountQuality ?? 'St.'}
+                                 gridColumn={{
+                                    base: '4 / -1',
+                                    sm: '2 / 3',
+                                    md: 'unset',
+                                 }}
+                              >
+                                 <option value='St.'>St.</option>
+                                 <option value='Pck.'>Pck.</option>
+                                 <option value='Dose/n'>Dose/n</option>
+                                 <option value='Fl.'>Fl.</option>
+                                 <option value='g'>g</option>
+                                 <option value='kg'>kg</option>
+                                 <option value='ml'>ml</option>
+                                 <option value='l'>l</option>
+                              </Select>
+                              <Input
+                                 gridColumn={{
+                                    base: '1 / -1',
+                                    sm: '3 / -1',
+                                    md: 'unset',
+                                 }}
+                                 defaultValue={name ?? ''}
+                                 height={{ base: '35px', sm: 'auto' }}
+                                 size='s'
+                                 p={1}
+                                 placeholder='Select a name'
+                              ></Input>
+                              <Input
+                                 gridColumn={{
+                                    base: 'span 6',
+                                    sm: '1 / 4',
+                                    md: 'unset',
+                                 }}
+                                 defaultValue={company ?? ''}
+                                 height={{ base: '35px', sm: 'auto' }}
+                                 size='s'
+                                 p={1}
+                                 placeholder='Optional: Select a company'
+                              ></Input>
+                              <Select
+                                 gridColumn={{
+                                    base: 'span 6',
+                                    sm: '4 / -1',
+                                    md: 'unset',
+                                 }}
+                                 fontSize={{ base: '0.7rem', md: '0.9rem' }}
+                                 placeholder='Optional: Select department'
+                                 defaultValue={department ?? ''}
+                              >
+                                 <option value='Fruit and veg'>
+                                    Fruit and veg
+                                 </option>
+                                 <option value='Supplies'>Supplies</option>
+                                 <option value='Freezer'>Freezer</option>
+                                 <option value='Bakery'>Bakery</option>
+                                 <option value='Household'>Household</option>
+                                 <option value='Meat'>Meat</option>
+                              </Select>
+                           </SimpleGrid>
+                        )
+                     })}
                </chakra.div>
                <EditButtonControl
                   id={id}
