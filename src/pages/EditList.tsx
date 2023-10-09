@@ -166,7 +166,7 @@ const EditList = () => {
       return () =>
          document.removeEventListener('keydown', handleKeyboardEvent, false)
    }, [handleKeyboardEvent])
-   const [setQuery] = useDebounce(getMyFavorites, 1000)
+   const [setQuery] = useDebounce(getMyFavorites, 250)
 
    useEffect(() => {
       document.addEventListener('click', handleShowFav, false)
