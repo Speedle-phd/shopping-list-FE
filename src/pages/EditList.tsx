@@ -442,6 +442,7 @@ const EditList = () => {
                         <option value='Pck.'>Pck.</option>
                         <option value='Dose/n'>Dose/n</option>
                         <option value='Fl.'>Fl.</option>
+                        <option value='Becher'>Becher</option>
                         <option value='g'>g</option>
                         <option value='kg'>kg</option>
                         <option value='ml'>ml</option>
@@ -641,6 +642,7 @@ const EditList = () => {
                                  <option value='Pck.'>Pck.</option>
                                  <option value='Dose/n'>Dose/n</option>
                                  <option value='Fl.'>Fl.</option>
+                                 <option value='Becher'>Becher</option>
                                  <option value='g'>g</option>
                                  <option value='kg'>kg</option>
                                  <option value='ml'>ml</option>
