@@ -221,7 +221,8 @@ const EditList = () => {
 
    //SAVE________________
    const handleClick = async () => {
-      const adjustedTitle = titleRef?.current?.textContent
+      const adjustedTitle = titleRef?.current?.textContent?.replaceAll("'", "")
+      console.log(adjustedTitle)
       const adjustedItems = [] as CollectionItemsInterface[]
       refs.forEach((ref) => {
          const itemObject: CollectionItemsInterface = {
@@ -279,7 +280,7 @@ const EditList = () => {
             code: (error as AxiosError).code!,
          })
          setLoading(false)
-         console.log((error as AxiosError).message)
+         console.log(error as AxiosError)
       }
    }
 
