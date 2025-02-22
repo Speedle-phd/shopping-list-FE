@@ -6,7 +6,7 @@ const Hero = () => {
    return (
       <Card>
          <Heading color='blue.500'>#Shopping with<br/>
-         Michi</Heading>
+         Ono</Heading>
          <Text color='gray.600' marginBlock={8}>
             Welcome to Panda's shopping reminder list.
             <br />
