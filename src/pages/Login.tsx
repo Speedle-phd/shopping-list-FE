@@ -76,7 +76,7 @@ const Login = () => {
       <>
          <Card>
             <Heading mb={5} color='blue.500'>
-               #Shopping with Michi
+               #Shopping with Ono
             </Heading>
             <Heading mb={5}>{loginPage ? 'Log in' : 'Register'}</Heading>
             <Form
